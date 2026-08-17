@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dyuman Studio | Ink, Sound, Play</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Mono:wght@400;500&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Seam element -->
+    <div class="seam">
+        <div class="seam-glow"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-logo">
+            D<span class="logo-accent">Y</span>UMAN
+        </div>
+        <div class="nav-links">
+            <a href="#tattoo">Tattoo</a>
+            <a href="#gaming">Gaming</a>
+            <a href="#music">Music</a>
+            <a href="#membership">Membership</a>
+            <a href="#book" class="nav-book">Book</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-glow glow-copper"></div>
+        <div class="hero-glow glow-cyan"></div>
+        <div class="hero-glow glow-violet"></div>
+        
+        <div class="hero-content">
+            <div class="eyebrow">AHMEDABAD · ONE ROOF, THREE CRAFTS</div>
+            <h1 class="headline">
+                <div>INK IT.</div>
+                <div>PLAY IT.</div>
+                <div class="outline-text">PRESS RECORD.</div>
+            </h1>
+            <p class="subtext">
+                Dyuman is a studio built around a simple idea &mdash; the best work happens where disciplines collide. A tattoo chair, a competitive gaming floor, and a recording booth, under one roof, run by people obsessed with their craft.
+            </p>
+            <div class="hero-buttons">
+                <a href="#book" class="btn btn-solid">Book a Session</a>
+                <a href="#tattoo" class="btn btn-outline">Explore the Studio</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Marquee -->
+    <div class="marquee-container">
+        <div class="marquee">
+            <span>TATTOO · CUSTOM INK & FINE LINE</span>
+            <span class="marquee-dot">·</span>
+            <span>GAMING · TOURNAMENT-GRADE RIGS</span>
+            <span class="marquee-dot">·</span>
+            <span>MUSIC · FULL PRODUCTION BOOTH</span>
+            <span class="marquee-dot">·</span>
+            <span>OPEN 7 DAYS · WALK-INS WELCOME</span>
+            <span class="marquee-dot">·</span>
+            <!-- Duplicate for loop -->
+            <span aria-hidden="true">TATTOO · CUSTOM INK & FINE LINE</span>
+            <span class="marquee-dot" aria-hidden="true">·</span>
+            <span aria-hidden="true">GAMING · TOURNAMENT-GRADE RIGS</span>
+            <span class="marquee-dot" aria-hidden="true">·</span>
+            <span aria-hidden="true">MUSIC · FULL PRODUCTION BOOTH</span>
+            <span class="marquee-dot" aria-hidden="true">·</span>
+            <span aria-hidden="true">OPEN 7 DAYS · WALK-INS WELCOME</span>
+            <span class="marquee-dot" aria-hidden="true">·</span>
+        </div>
+    </div>
+
+    <!-- Section 01: Tattoo -->
+    <section id="tattoo" class="section section-tattoo" data-accent="copper">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-num font-mono">01</span>
+                <h2>The Ink Room</h2>
+            </div>
+            <p class="section-intro">
+                Five resident artists, sterile-first studio standards, and a portfolio spanning fine line, blackwork, realism, and traditional. Every piece starts with a real consultation, not a walk-in guess.
+            </p>
+
+            <h3 class="subsection-title font-mono">Resident Artists</h3>
+            <div class="grid-hairline roster-grid">
+                <!-- PLACEHOLDER: Real artist names, specialties, and photos needed -->
+                <!-- Replace the card-img-placeholder div with <img> tags -->
+                <div class="card">
+                    <div class="card-img-placeholder">Image Placeholder</div>
+                    <div class="card-body">
+                        <h4>Artist Name</h4>
+                        <p class="font-mono text-muted">Fine Line / Botanical</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img-placeholder">Image Placeholder</div>
+                    <div class="card-body">
+                        <h4>Artist Name</h4>
+                        <p class="font-mono text-muted">Blackwork / Geometric</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img-placeholder">Image Placeholder</div>
+                    <div class="card-body">
+                        <h4>Artist Name</h4>
+                        <p class="font-mono text-muted">Realism / Portrait</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img-placeholder">Image Placeholder</div>
+                    <div class="card-body">
+                        <h4>Artist Name</h4>
+                        <p class="font-mono text-muted">Traditional / Color</p>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="subsection-title font-mono">Pricing</h3>
+            <!-- PLACEHOLDER: Final pricing to be updated by Dyuman -->
+            <div class="grid-hairline pricing-grid cols-3">
+                <div class="card flex-col">
+                    <div class="card-header">Consultation</div>
+                    <div class="card-price font-mono">Complimentary</div>
+                </div>
+                <div class="card flex-col">
+                    <div class="card-header">Custom Piece</div>
+                    <div class="card-price font-mono">From ₹3,500</div>
+                </div>
+                <div class="card flex-col">
+                    <div class="card-header">Touch-Up & Cover-Up</div>
+                    <div class="card-price font-mono">From ₹2,000</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 02: Gaming -->
+    <section id="gaming" class="section section-gaming" data-accent="cyan">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-num font-mono">02</span>
+                <h2>The Arena</h2>
+            </div>
+            <p class="section-intro">
+                High-refresh rigs, console pods, and a dedicated tournament stage. Casual drop-ins on one side, ranked and LAN tournaments on the other.
+            </p>
+
+            <h3 class="subsection-title font-mono">Setup</h3>
+            <!-- PLACEHOLDER: Update rig/console counts if they differ -->
+            <div class="grid-hairline stats-grid cols-3">
+                <div class="card flex-col text-center">
+                    <div class="stat-num font-mono accent-color">12</div>
+                    <div class="stat-label">PC Rigs</div>
+                    <div class="stat-subtext font-mono text-muted">240Hz / RTX-class</div>
+                </div>
+                <div class="card flex-col text-center">
+                    <div class="stat-num font-mono accent-color">6</div>
+                    <div class="stat-label">Console Pods</div>
+                    <div class="stat-subtext font-mono text-muted">PS5 / Series X</div>
+                </div>
+                <div class="card flex-col text-center">
+                    <div class="stat-num font-mono accent-color">32</div>
+                    <div class="stat-label">Tournament Seats</div>
+                    <div class="stat-subtext font-mono text-muted">Stage + Stream Setup</div>
+                </div>
+            </div>
+
+            <h3 class="subsection-title font-mono">Pricing</h3>
+            <!-- PLACEHOLDER: Final pricing to be updated by Dyuman -->
+            <div class="grid-hairline pricing-grid cols-3">
+                <div class="card flex-col">
+                    <div class="card-header">Hourly Session</div>
+                    <div class="card-price font-mono">₹120<span class="price-unit">/hr</span></div>
+                </div>
+                <div class="card flex-col">
+                    <div class="card-header">Squad Room</div>
+                    <div class="card-price font-mono">₹900<span class="price-unit">/3hrs</span></div>
+                </div>
+                <div class="card flex-col">
+                    <div class="card-header">Tournament Night</div>
+                    <div class="card-price font-mono">₹200<span class="price-unit"> entry</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 03: Music -->
+    <section id="music" class="section section-music" data-accent="violet">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-num font-mono">03</span>
+                <h2>The Booth</h2>
+            </div>
+            <p class="section-intro">
+                A treated recording room, a mix suite, and engineers who'll sit with you until the take feels right. Built for rappers, singers, and producers who want a real room, not a bedroom setup.
+            </p>
+
+            <div class="waveform-container" id="waveform">
+                <!-- Bars generated by JS -->
+            </div>
+
+            <h3 class="subsection-title font-mono">Pricing</h3>
+            <!-- PLACEHOLDER: Final pricing to be updated by Dyuman -->
+            <div class="grid-hairline pricing-grid cols-3">
+                <div class="card flex-col">
+                    <div class="card-header">Studio Hour</div>
+                    <div class="card-price font-mono">₹800<span class="price-unit">/hr</span></div>
+                </div>
+                <div class="card flex-col">
+                    <div class="card-header">Full Mix & Master</div>
+                    <div class="card-price font-mono">From ₹4,500<span class="price-unit">/track</span></div>
+                </div>
+                <div class="card flex-col">
+                    <div class="card-header">Rehearsal Room</div>
+                    <div class="card-price font-mono">₹500<span class="price-unit">/hr</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 04: Membership -->
+    <section id="membership" class="section section-membership">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-num font-mono">04</span>
+                <h2>Membership</h2>
+            </div>
+            <p class="section-intro font-mono">One Pass, All Three</p>
+
+            <!-- PLACEHOLDER: Final membership pricing to be updated by Dyuman -->
+            <div class="grid-hairline membership-grid cols-3">
+                <div class="card flex-col tier-card">
+                    <div class="tier-name">Drop-In</div>
+                    <div class="tier-price font-mono">₹0</div>
+                    <ul class="tier-features">
+                        <li>Pay-per-visit</li>
+                        <li>Standard rates</li>
+                        <li>Walk-in access</li>
+                    </ul>
+                </div>
+                <div class="card flex-col tier-card tier-highlight">
+                    <div class="tier-name">Dyuman Member</div>
+                    <div class="tier-price font-mono">₹1,499<span class="price-unit">/mo</span></div>
+                    <ul class="tier-features">
+                        <li>10% off all services</li>
+                        <li>Priority booking slots</li>
+                        <li>4 gaming hours included</li>
+                        <li>1 rehearsal hour included</li>
+                    </ul>
+                </div>
+                <div class="card flex-col tier-card">
+                    <div class="tier-name">Studio Pro</div>
+                    <div class="tier-price font-mono">₹3,999<span class="price-unit">/mo</span></div>
+                    <ul class="tier-features">
+                        <li>20% off all services</li>
+                        <li>Unlimited off-peak gaming</li>
+                        <li>4 studio hours/mo</li>
+                        <li>Dedicated contact</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 05: Testimonials -->
+    <section class="section section-testimonials">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-num font-mono">05</span>
+                <h2>Word on the Floor</h2>
+            </div>
+            
+            <div class="grid-hairline testimonials-grid cols-3">
+                <div class="card flex-col quote-card">
+                    <p class="quote-text">"I used to bounce between three different spots in Ahmedabad. Now I get my ink touched up, drop in for a few hours of Valorant, and head home. The vibe is unmatched."</p>
+                    <div class="quote-author font-mono text-muted">&mdash; Rahul K., Dyuman Member</div>
+                </div>
+                <div class="card flex-col quote-card">
+                    <p class="quote-text">"The tournament stage is legit. 240Hz monitors, proper chairs, zero lag. Best LAN setup I've played on in the city."</p>
+                    <div class="quote-author font-mono text-muted">&mdash; Aman "Viper" S., Gaming Regular</div>
+                </div>
+                <div class="card flex-col quote-card">
+                    <p class="quote-text">"Came in for a walk-in consultation, ended up staying to talk concepts for an hour. The artists actually care about the design process, not just getting you in the chair."</p>
+                    <div class="quote-author font-mono text-muted">&mdash; Priya M., Tattoo Client</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / Contact -->
+    <footer id="book" class="footer">
+        <div class="footer-container">
+            <div class="footer-left">
+                <h2>Let's Build Something.</h2>
+                <p class="footer-intro">Book a chair, a rig, or a booth.</p>
+                <!-- NOTE: This is a static form. Needs a real submit handler / email service (e.g. Formspree) later -->
+                <form class="booking-form" action="#" method="POST" onsubmit="event.preventDefault(); alert('Booking request sent! (Static form placeholder)');">
+                    <div class="form-group">
+                        <input type="text" placeholder="Name" required class="font-mono">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" placeholder="Phone or Email" required class="font-mono">
+                    </div>
+                    <div class="form-group">
+                        <select required class="font-mono">
+                            <option value="" disabled selected>What are you booking?</option>
+                            <option value="tattoo">Tattoo Consultation / Session</option>
+                            <option value="gaming">Gaming Rig / Tournament</option>
+                            <option value="music">Studio Booth / Rehearsal</option>
+                            <option value="membership">Membership Inquiry</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="Message (optional details)" rows="4" class="font-mono"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-solid">Send Request</button>
+                </form>
+            </div>
+            
+            <div class="footer-middle">
+                <h3 class="font-mono">Visit</h3>
+                <address>
+                    <!-- PLACEHOLDER: Studio address -->
+                    123 Horizon Hub, S.G. Highway<br>
+                    Ahmedabad, Gujarat 380015<br><br>
+                    <strong>Hours</strong><br>
+                    Tue&ndash;Sun: 11am &ndash; 10pm<br>
+                    Monday: Closed
+                </address>
+                <!-- PLACEHOLDER: Google Maps link -->
+                <a href="#" class="footer-link font-mono text-accent-cyan">Open in Maps &rarr;</a>
+            </div>
+
+            <div class="footer-right">
+                <h3 class="font-mono">Connect</h3>
+                <div class="connect-links">
+                    <!-- PLACEHOLDERS: Social/Contact links -->
+                    <a href="#" class="footer-link">Instagram</a>
+                    <a href="#" class="footer-link">WhatsApp</a>
+                    <a href="mailto:hello@dyuman.studio" class="footer-link">Email</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom font-mono">
+            <div>&copy; 2026 DYUMAN STUDIO. ALL RIGHTS RESERVED.</div>
+            <div class="footer-tag">INK · SOUND · PLAY</div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
