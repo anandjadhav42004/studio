@@ -20,7 +20,7 @@
         <div class="nav-logo">
             <div class="logo-mark">D</div>
         </div>
-        <div class="nav-links font-mono">
+        <div class="nav-links font-mono" id="navLinks">
             <a href="#hero" class="hover-target">Home</a>
             <a href="#about" class="hover-target">About</a>
             <a href="#tattoo" class="hover-target nav-tab-link" data-target="tattoo">Tattoo</a>
@@ -29,7 +29,14 @@
             <a href="#membership" class="hover-target">Membership</a>
             <a href="#highlights" class="hover-target">Blog</a>
         </div>
-        <a href="#contact" class="btn btn-solid hover-target">Contact Us</a>
+        <div class="nav-right">
+            <a href="#contact" class="btn btn-solid hover-target nav-contact">Contact Us</a>
+            <button class="hamburger-btn hover-target" id="hamburgerBtn" aria-label="Toggle Menu">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+        </div>
     </nav>
 
     <!-- Hero Section -->
@@ -299,8 +306,7 @@
             </div>
             
             <div class="social-row scroll-reveal">
-                <a href="https://www.instagram.com/dyumaaaaan4l" target="_blank" rel="noopener" class="social-icon-btn hover-target">IG</a>
-                <a href="https://wa.me/918308366101" target="_blank" rel="noopener" class="social-icon-btn hover-target">WA</a>
+                <a href="https://wa.me/918308366101?text=Hi%20Dyuman!%20I'd%20like%20to%20know%20more%20about%20your%20studio." target="_blank" rel="noopener" class="social-icon-btn hover-target">WA</a>
             </div>
         </div>
     </section>
@@ -313,7 +319,7 @@
             </div>
             
             <div class="carousel-container scroll-reveal">
-                <button class="carousel-btn prev hover-target" id="carouselPrev">&larr;</button>
+                <button class="carousel-btn prev hover-target" id="carouselPrev" aria-label="Previous image">&larr;</button>
                 <div class="carousel-track-wrapper">
                     <div class="carousel-track" id="carouselTrack">
                         <div class="carousel-item"><div class="gallery-img-placeholder curtain-reveal-container hover-target"></div><div class="carousel-caption font-mono">Tattoo Art</div></div>
@@ -323,7 +329,7 @@
                         <div class="carousel-item"><div class="gallery-img-placeholder curtain-reveal-container hover-target"></div><div class="carousel-caption font-mono">Tournament Night</div></div>
                     </div>
                 </div>
-                <button class="carousel-btn next hover-target" id="carouselNext">&rarr;</button>
+                <button class="carousel-btn next hover-target" id="carouselNext" aria-label="Next image">&rarr;</button>
             </div>
             <div class="text-center scroll-reveal" style="margin-top: 3rem;">
                 <a href="#" class="btn btn-outline hover-target">VIEW ALL</a>
@@ -391,7 +397,7 @@
     <!-- Instagram Strip -->
     <section class="section-instagram">
         <h2 class="text-center font-mono scroll-reveal" style="margin-bottom: 2rem;">@DYUMAAAAAN4L</h2>
-        <a href="https://www.instagram.com/dyumaaaaan4l" target="_blank" rel="noopener" class="insta-strip hover-target">
+        <a href="https://www.instagram.com/dyumaaaaan4l" target="_blank" rel="noopener" class="insta-strip hover-target" id="instaStrip">
             <div class="insta-tile"><div class="insta-placeholder"></div></div>
             <div class="insta-tile"><div class="insta-placeholder"></div></div>
             <div class="insta-tile center-tile">
@@ -410,17 +416,17 @@
         <div class="inquiry-card tattoo-bg">
             <div class="inquiry-overlay"></div>
             <h3 class="font-mono">TATTOO INQUIRY</h3>
-            <a href="#contact" class="btn btn-outline hover-target">LEARN MORE</a>
+            <a href="https://wa.me/918308366101?text=Hi%2C%20I'd%20like%20to%20book%20a%20tattoo%20consultation." target="_blank" rel="noopener" class="btn btn-outline hover-target">LEARN MORE</a>
         </div>
         <div class="inquiry-card gaming-bg">
             <div class="inquiry-overlay"></div>
             <h3 class="font-mono">GAMING INQUIRY</h3>
-            <a href="#contact" class="btn btn-outline hover-target">LEARN MORE</a>
+            <a href="https://wa.me/918308366101?text=Hi%2C%20I'd%20like%20to%20book%20a%20gaming%20session." target="_blank" rel="noopener" class="btn btn-outline hover-target">LEARN MORE</a>
         </div>
         <div class="inquiry-card music-bg">
             <div class="inquiry-overlay"></div>
             <h3 class="font-mono">MUSIC INQUIRY</h3>
-            <a href="#contact" class="btn btn-outline hover-target">LEARN MORE</a>
+            <a href="https://wa.me/918308366101?text=Hi%2C%20I'd%20like%20to%20book%20studio%20time." target="_blank" rel="noopener" class="btn btn-outline hover-target">LEARN MORE</a>
         </div>
     </section>
 
@@ -435,7 +441,7 @@
             </p>
             <div class="social-row">
                 <a href="https://www.instagram.com/dyumaaaaan4l" target="_blank" rel="noopener" class="social-icon-btn hover-target">IG</a>
-                <a href="https://wa.me/918308366101" target="_blank" rel="noopener" class="social-icon-btn hover-target">WA</a>
+                <a href="https://wa.me/918308366101?text=Hi%20Dyuman!%20I'd%20like%20to%20know%20more%20about%20your%20studio." target="_blank" rel="noopener" class="social-icon-btn hover-target">WA</a>
             </div>
         </div>
     </section>
@@ -446,6 +452,32 @@
             <div class="footer-col brand-col scroll-reveal">
                 <div class="logo-mark footer-logo">D</div>
                 <p class="font-mono text-muted">INK &middot; SOUND &middot; PLAY</p>
+                <div class="booking-form-container" style="margin-top: 2rem;">
+                    <!-- WhatsApp Booking Form -->
+                    <form id="bookingForm" class="booking-form" action="#" method="POST">
+                        <div class="form-group">
+                            <input type="text" id="bookName" placeholder="Name" required class="font-mono">
+                            <div class="input-underline"></div>
+                        </div>
+                        <div class="form-group">
+                            <select id="bookType" required class="font-mono">
+                                <option value="" disabled selected>What are you booking?</option>
+                                <option value="Tattoo Consultation">Tattoo Consultation</option>
+                                <option value="Gaming Session">Gaming Session</option>
+                                <option value="Studio Time">Studio Time</option>
+                                <option value="Membership Inquiry">Membership Inquiry</option>
+                            </select>
+                            <div class="input-underline"></div>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="bookMessage" placeholder="Message (optional details)" rows="2" class="font-mono"></textarea>
+                            <div class="input-underline"></div>
+                        </div>
+                        <button type="submit" id="submitBtn" class="btn btn-solid hover-target" style="width: 100%;">
+                            <span class="btn-text">Send Request via WhatsApp</span>
+                        </button>
+                    </form>
+                </div>
             </div>
             
             <div class="footer-col scroll-reveal">
@@ -475,7 +507,7 @@
                     <a href="https://www.instagram.com/dyumaaaaan4l" target="_blank" rel="noopener" class="hover-target">Instagram &mdash; @dyumaaaaan4l</a>
                     <a href="https://www.instagram.com/dyumaaaaan4l.ink" target="_blank" rel="noopener" class="hover-target">Tattoo Portfolio &mdash; @dyumaaaaan4l.ink</a>
                     
-                    <a href="https://wa.me/918308366101" target="_blank" rel="noopener" class="btn btn-solid btn-sm hover-target" style="margin-top: 1rem;">
+                    <a href="https://wa.me/918308366101?text=Hi%20Dyuman!%20I'd%20like%20to%20know%20more%20about%20your%20studio." target="_blank" rel="noopener" class="btn btn-solid btn-sm hover-target whatsapp-link-btn" style="margin-top: 1rem;">
                         <span class="icon">&#128172;</span> Message us on WhatsApp
                     </a>
                 </div>
@@ -488,7 +520,7 @@
     </footer>
 
     <!-- Sticky WhatsApp -->
-    <a href="https://wa.me/918308366101" class="sticky-whatsapp hover-target" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <a href="https://wa.me/918308366101?text=Hi%20Dyuman!%20I'd%20like%20to%20know%20more%20about%20your%20studio." class="sticky-whatsapp hover-target" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
         <svg viewBox="0 0 24 24"><path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.964 9.964 0 001.333 4.976L1.865 22.5l5.683-1.49a9.96 9.96 0 004.464 1.053h.004c5.505 0 9.988-4.478 9.989-9.984A9.957 9.957 0 0019.07 5.045a9.955 9.955 0 00-7.058-2.929v-.116zm5.83 14.153c-.247.695-1.42 1.341-1.956 1.458-.513.111-1.185.163-3.32-.723-3.045-1.266-5.006-4.38-5.158-4.582-.152-.202-1.233-1.642-1.233-3.13 0-1.488.767-2.222 1.042-2.525.275-.303.6-.379.799-.379.198 0 .397.001.574.009.185.009.431-.073.676.518.253.606.862 2.106.94 2.257.078.152.13.329.03.556-.1.227-.152.366-.303.543-.152.177-.32.378-.455.505-.152.152-.313.315-.14.618.172.303.766 1.272 1.645 2.053 1.137 1.011 2.091 1.323 2.393 1.474.303.152.48.127.658-.075.177-.202.766-.895.969-1.2.203-.303.406-.252.684-.151.278.1.1763.834 2.053.909.29.076.455.247.53.379.075.132.075.766-.172 1.46z"/></svg>
     </a>
 
