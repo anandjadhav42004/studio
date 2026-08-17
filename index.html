@@ -10,97 +10,94 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Custom Cursor -->
     <div class="custom-cursor" aria-hidden="true"></div>
-
-    <!-- Page Loader -->
-    <div class="loader-overlay">
-        <div class="loader-line"></div>
-    </div>
-
-    <!-- Seam element -->
-    <div class="seam">
-        <div class="seam-glow"></div>
-    </div>
-
+    <div class="loader-overlay"><div class="loader-line"></div></div>
+    
+    <div class="seam"><div class="seam-glow"></div></div>
+    
     <!-- Navigation -->
     <nav class="navbar fade-in-element">
         <div class="nav-logo">
-            D<span class="logo-accent">Y</span>UMAN
-            <span class="live-badge font-mono" id="liveBadge"><span class="live-indicator"></span><span class="live-text">Closed</span></span>
+            <div class="logo-mark">D</div>
         </div>
-        <div class="nav-links">
-            <a href="#tattoo" class="hover-target">Tattoo</a>
-            <a href="#gaming" class="hover-target">Gaming</a>
-            <a href="#music" class="hover-target">Music</a>
+        <div class="nav-links font-mono">
+            <a href="#hero" class="hover-target">Home</a>
+            <a href="#about" class="hover-target">About</a>
+            <a href="#tattoo" class="hover-target nav-tab-link" data-target="tattoo">Tattoo</a>
+            <a href="#gaming" class="hover-target nav-tab-link" data-target="gaming">Gaming</a>
+            <a href="#music" class="hover-target nav-tab-link" data-target="music">Music</a>
             <a href="#membership" class="hover-target">Membership</a>
-            <a href="https://wa.me/918308366101" class="nav-book hover-target">Book</a>
+            <a href="#highlights" class="hover-target">Blog</a>
         </div>
+        <a href="#contact" class="btn btn-solid hover-target">Contact Us</a>
     </nav>
 
     <!-- Hero Section -->
-    <header class="hero">
-        <div class="hero-glow glow-copper"></div>
-        <div class="hero-glow glow-cyan"></div>
-        <div class="hero-glow glow-violet"></div>
-        
-        <div class="hero-content">
-            <div class="eyebrow fade-in-element">LATUR &middot; ONE ROOF, THREE CRAFTS</div>
-            <h1 class="headline">
-                <div class="reveal-line-wrap"><div class="reveal-line">INK IT.</div></div>
-                <div class="reveal-line-wrap"><div class="reveal-line">PLAY IT.</div></div>
-                <div class="reveal-line-wrap"><div class="reveal-line outline-text">PRESS RECORD.</div></div>
+    <header id="hero" class="hero">
+        <div class="hero-left">
+            <div class="hero-glow"></div>
+            <div class="eyebrow font-mono fade-in-element">INK &middot; SOUND &middot; PLAY &mdash; ONE ROOF, LATUR</div>
+            <h1 class="headline fade-in-element">
+                <div class="reveal-line-wrap"><div class="reveal-line">DYUMAN</div></div>
+                <div class="reveal-line-wrap"><div class="reveal-line text-accent">STUDIO</div></div>
+                <div class="reveal-line-wrap"><div class="reveal-line">ARYA</div></div>
             </h1>
             <p class="subtext fade-in-element">
-                Dyuman is a studio built around a simple idea &mdash; the best work happens where disciplines collide. A tattoo chair, a competitive gaming floor, and a recording booth, under one roof, run by people obsessed with their craft.
+                Dyuman was built on one idea &mdash; that ink, sound, and play deserve the same level of craft. This is a space designed for people who take what they do seriously.
             </p>
-            <div class="hero-buttons fade-in-element">
-                <a href="https://wa.me/918308366101" class="btn btn-solid btn-magnetic hover-target">
-                    <span class="btn-text">Book a Session</span>
-                </a>
-                <a href="#tattoo" class="btn btn-outline hover-target">Explore the Studio</a>
+            
+            <div class="hero-bottom fade-in-element">
+                <div class="video-card card-hover hover-target">
+                    <div class="play-icon">&#9658;</div>
+                    <div class="video-placeholder-text">Watch Video</div>
+                </div>
+                <div class="info-card">
+                    <h3 class="font-mono">Three Crafts, One Studio</h3>
+                    <p class="text-muted">High-end tattoo art, competitive gaming, and professional sound production.</p>
+                    <a href="#contact" class="btn btn-solid btn-sm hover-target">Schedule With Us</a>
+                </div>
             </div>
+            
+            <!-- Rotating Badge -->
+            <div class="rotating-badge hover-target fade-in-element">
+                <svg viewBox="0 0 100 100" width="100" height="100">
+                    <path id="curve" d="M 50, 50 m -40, 0 a 40,40 0 1,1 80,0 a 40,40 0 1,1 -80,0" fill="transparent" />
+                    <text font-family="IBM Plex Mono" font-size="10" fill="currentColor" letter-spacing="2">
+                        <textPath href="#curve">DYUMAN &middot; STUDIO &middot; DYUMAN &middot; STUDIO &middot; </textPath>
+                    </text>
+                    <polygon points="45,45 55,45 50,55" fill="currentColor" />
+                </svg>
+            </div>
+        </div>
+        <div class="hero-right">
+            <div class="hero-image-placeholder"></div>
+            <div class="hero-gradient-overlay"></div>
         </div>
     </header>
 
-    <!-- Marquee -->
-    <div class="marquee-container">
-        <div class="marquee">
-            <span>TATTOO · CUSTOM INK & FINE LINE</span>
-            <span class="marquee-dot">·</span>
-            <span>GAMING · TOURNAMENT-GRADE RIGS</span>
-            <span class="marquee-dot">·</span>
-            <span>MUSIC · FULL PRODUCTION BOOTH</span>
-            <span class="marquee-dot">·</span>
-            <span>OPEN 7 DAYS · WALK-INS WELCOME</span>
-            <span class="marquee-dot">·</span>
-            <!-- Duplicate for loop -->
-            <span aria-hidden="true">TATTOO · CUSTOM INK & FINE LINE</span>
-            <span class="marquee-dot" aria-hidden="true">·</span>
-            <span aria-hidden="true">GAMING · TOURNAMENT-GRADE RIGS</span>
-            <span class="marquee-dot" aria-hidden="true">·</span>
-            <span aria-hidden="true">MUSIC · FULL PRODUCTION BOOTH</span>
-            <span class="marquee-dot" aria-hidden="true">·</span>
-            <span aria-hidden="true">OPEN 7 DAYS · WALK-INS WELCOME</span>
-            <span class="marquee-dot" aria-hidden="true">·</span>
+    <!-- Global Tab/Toggle Filter -->
+    <div class="filter-section fade-in-element">
+        <div class="filter-container">
+            <button class="filter-btn active hover-target" data-filter="all">All</button>
+            <button class="filter-btn hover-target" data-filter="tattoo">Tattoo</button>
+            <button class="filter-btn hover-target" data-filter="gaming">Gaming</button>
+            <button class="filter-btn hover-target" data-filter="music">Music</button>
         </div>
     </div>
 
     <!-- Section 01: Tattoo -->
-    <section id="tattoo" class="section section-tattoo" data-accent="copper">
+    <section id="tattoo" class="section section-tattoo filterable-section" data-id="tattoo">
         <div class="section-container">
             <div class="section-header scroll-reveal">
                 <span class="section-num font-mono">01</span>
                 <h2>The Ink Room</h2>
             </div>
             <p class="section-intro scroll-reveal">
-                Five resident artists, sterile-first studio standards, and a portfolio spanning fine line, blackwork, realism, and traditional. Every piece starts with a real consultation, not a walk-in guess.
+                Five resident artists, sterile-first studio standards, and a portfolio spanning fine line, blackwork, realism, and traditional.
             </p>
 
             <h3 class="subsection-title font-mono scroll-reveal">Resident Artists</h3>
             <div class="grid-hairline roster-grid grid-stagger-group">
-                <!-- PLACEHOLDER: Real artist names, specialties, and photos needed -->
-                <!-- Replace the card-img-placeholder div with <img> tags -->
                 <div class="card card-hover hover-target card-reveal">
                     <div class="card-accent-line"></div>
                     <div class="card-img-placeholder curtain-reveal-container hover-target">Image Placeholder</div>
@@ -134,9 +131,10 @@
                     </div>
                 </div>
             </div>
+            
+            <a href="https://www.instagram.com/dyumaaaaan4l.ink" target="_blank" rel="noopener noreferrer" class="portfolio-link font-mono scroll-reveal hover-target">See full portfolio on Instagram &mdash; @dyumaaaaan4l.ink &rarr;</a>
 
-            <h3 class="subsection-title font-mono scroll-reveal">Pricing</h3>
-            <!-- PLACEHOLDER: Final pricing to be updated by Dyuman -->
+            <h3 class="subsection-title font-mono scroll-reveal" style="margin-top: 4rem;">Pricing</h3>
             <div class="grid-hairline pricing-grid cols-3 grid-stagger-group">
                 <div class="card flex-col card-hover hover-target card-reveal">
                     <div class="card-accent-line"></div>
@@ -146,19 +144,19 @@
                 <div class="card flex-col card-hover hover-target card-reveal">
                     <div class="card-accent-line"></div>
                     <div class="card-header">Custom Piece</div>
-                    <div class="card-price font-mono">From ₹3,500</div>
+                    <div class="card-price font-mono">From &#8377;3,500</div>
                 </div>
                 <div class="card flex-col card-hover hover-target card-reveal">
                     <div class="card-accent-line"></div>
                     <div class="card-header">Touch-Up & Cover-Up</div>
-                    <div class="card-price font-mono">From ₹2,000</div>
+                    <div class="card-price font-mono">From &#8377;2,000</div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Section 02: Gaming -->
-    <section id="gaming" class="section section-gaming" data-accent="cyan">
+    <section id="gaming" class="section section-gaming filterable-section" data-id="gaming">
         <div class="section-container">
             <div class="section-header scroll-reveal">
                 <span class="section-num font-mono">02</span>
@@ -168,60 +166,86 @@
                 High-refresh rigs, console pods, and a dedicated tournament stage. Casual drop-ins on one side, ranked and LAN tournaments on the other.
             </p>
 
-            <h3 class="subsection-title font-mono scroll-reveal">Setup</h3>
-            <!-- PLACEHOLDER: Update rig/console counts if they differ -->
-            <div class="grid-hairline stats-grid cols-3 grid-stagger-group count-up-group">
+            <div class="grid-hairline stats-grid cols-3 grid-stagger-group count-up-group" style="margin-bottom: 4rem;">
                 <div class="card flex-col text-center card-hover hover-target card-reveal">
                     <div class="card-accent-line"></div>
-                    <div class="stat-num font-mono accent-color" data-count="12">0</div>
+                    <div class="stat-num font-mono text-accent" data-count="12">0</div>
                     <div class="stat-label">PC Rigs</div>
                     <div class="stat-subtext font-mono text-muted">240Hz / RTX-class</div>
                 </div>
                 <div class="card flex-col text-center card-hover hover-target card-reveal">
                     <div class="card-accent-line"></div>
-                    <div class="stat-num font-mono accent-color" data-count="6">0</div>
+                    <div class="stat-num font-mono text-accent" data-count="6">0</div>
                     <div class="stat-label">Console Pods</div>
                     <div class="stat-subtext font-mono text-muted">PS5 / Series X</div>
                 </div>
                 <div class="card flex-col text-center card-hover hover-target card-reveal">
                     <div class="card-accent-line"></div>
-                    <div class="stat-num font-mono accent-color" data-count="32">0</div>
+                    <div class="stat-num font-mono text-accent" data-count="32">0</div>
                     <div class="stat-label">Tournament Seats</div>
                     <div class="stat-subtext font-mono text-muted">Stage + Stream Setup</div>
                 </div>
             </div>
 
+            <h3 class="subsection-title font-mono scroll-reveal">Equipment Lineup</h3>
+            <div class="grid-hairline equipment-grid cols-2 grid-stagger-group">
+                <div class="card card-hover hover-target card-reveal">
+                    <div class="card-accent-line"></div>
+                    <h4 class="font-mono text-accent">PCs</h4>
+                    <p class="text-muted">High-end gaming PCs &mdash; RTX 4080 / 4090-class GPUs, 240Hz+ monitors, mechanical keyboards, competitive-grade peripherals.</p>
+                </div>
+                <div class="card card-hover hover-target card-reveal">
+                    <div class="card-accent-line"></div>
+                    <h4 class="font-mono text-accent">Consoles</h4>
+                    <p class="text-muted">Latest-gen consoles &mdash; PS5 Pro, Xbox Series X, Nintendo Switch 2, each in its own private pod with 4K displays.</p>
+                </div>
+                <div class="card card-hover hover-target card-reveal">
+                    <div class="card-accent-line"></div>
+                    <h4 class="font-mono text-accent">VR</h4>
+                    <p class="text-muted">VR gaming pod &mdash; Meta Quest 3 / PSVR2 setup for immersive single or multiplayer sessions.</p>
+                </div>
+                <div class="card card-hover hover-target card-reveal">
+                    <div class="card-accent-line"></div>
+                    <h4 class="font-mono text-accent">Peripherals</h4>
+                    <p class="text-muted">Full range of controllers, racing wheels, and flight sticks available on request.</p>
+                </div>
+            </div>
+
             <h3 class="subsection-title font-mono scroll-reveal">Pricing</h3>
-            <!-- PLACEHOLDER: Final pricing to be updated by Dyuman -->
-            <div class="grid-hairline pricing-grid cols-3 grid-stagger-group">
+            <div class="grid-hairline pricing-grid cols-4 grid-stagger-group">
                 <div class="card flex-col card-hover hover-target card-reveal">
                     <div class="card-accent-line"></div>
                     <div class="card-header">Hourly Session</div>
-                    <div class="card-price font-mono">₹120<span class="price-unit">/hr</span></div>
+                    <div class="card-price font-mono">&#8377;120<span class="price-unit">/hr</span></div>
                 </div>
                 <div class="card flex-col card-hover hover-target card-reveal">
                     <div class="card-accent-line"></div>
                     <div class="card-header">Squad Room</div>
-                    <div class="card-price font-mono">₹900<span class="price-unit">/3hrs</span></div>
+                    <div class="card-price font-mono">&#8377;900<span class="price-unit">/3hrs</span></div>
                 </div>
                 <div class="card flex-col card-hover hover-target card-reveal">
                     <div class="card-accent-line"></div>
                     <div class="card-header">Tournament Night</div>
-                    <div class="card-price font-mono">₹200<span class="price-unit"> entry</span></div>
+                    <div class="card-price font-mono">&#8377;200<span class="price-unit"> entry</span></div>
+                </div>
+                <div class="card flex-col card-hover hover-target card-reveal">
+                    <div class="card-accent-line"></div>
+                    <div class="card-header">VR Session</div>
+                    <div class="card-price font-mono">&#8377;250<span class="price-unit">/30min</span></div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Section 03: Music -->
-    <section id="music" class="section section-music" data-accent="violet">
+    <section id="music" class="section section-music filterable-section" data-id="music">
         <div class="section-container">
             <div class="section-header scroll-reveal">
                 <span class="section-num font-mono">03</span>
                 <h2>The Booth</h2>
             </div>
             <p class="section-intro scroll-reveal">
-                A treated recording room, a mix suite, and engineers who'll sit with you until the take feels right. Built for rappers, singers, and producers who want a real room, not a bedroom setup.
+                A treated recording room, a mix suite, and engineers who'll sit with you until the take feels right. Built for rappers, singers, and producers who want a real room.
             </p>
 
             <div class="waveform-container scroll-reveal" id="waveform">
@@ -229,167 +253,237 @@
             </div>
 
             <h3 class="subsection-title font-mono scroll-reveal">Pricing</h3>
-            <!-- PLACEHOLDER: Final pricing to be updated by Dyuman -->
             <div class="grid-hairline pricing-grid cols-3 grid-stagger-group">
                 <div class="card flex-col card-hover hover-target card-reveal">
                     <div class="card-accent-line"></div>
                     <div class="card-header">Studio Hour</div>
-                    <div class="card-price font-mono">₹800<span class="price-unit">/hr</span></div>
+                    <div class="card-price font-mono">&#8377;800<span class="price-unit">/hr</span></div>
                 </div>
                 <div class="card flex-col card-hover hover-target card-reveal">
                     <div class="card-accent-line"></div>
                     <div class="card-header">Full Mix & Master</div>
-                    <div class="card-price font-mono">From ₹4,500<span class="price-unit">/track</span></div>
+                    <div class="card-price font-mono">From &#8377;4,500<span class="price-unit">/track</span></div>
                 </div>
                 <div class="card flex-col card-hover hover-target card-reveal">
                     <div class="card-accent-line"></div>
                     <div class="card-header">Rehearsal Room</div>
-                    <div class="card-price font-mono">₹500<span class="price-unit">/hr</span></div>
+                    <div class="card-price font-mono">&#8377;500<span class="price-unit">/hr</span></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Section 04: Membership -->
-    <section id="membership" class="section section-membership" data-accent="copper">
-        <!-- Reusing copper for membership glow if needed -->
+    <!-- Trusted Crew (Award-Winning Style) -->
+    <section id="about" class="section section-trusted">
         <div class="section-container">
-            <div class="section-header scroll-reveal">
-                <span class="section-num font-mono">04</span>
-                <h2>Membership</h2>
-            </div>
-            <p class="section-intro font-mono scroll-reveal">One Pass, All Three</p>
-
-            <!-- PLACEHOLDER: Final membership pricing to be updated by Dyuman -->
-            <div class="grid-hairline membership-grid cols-3 grid-stagger-group">
-                <div class="card flex-col tier-card card-hover hover-target card-reveal">
-                    <div class="card-accent-line"></div>
-                    <div class="tier-name">Drop-In</div>
-                    <div class="tier-price font-mono">₹0</div>
-                    <ul class="tier-features">
-                        <li>Pay-per-visit</li>
-                        <li>Standard rates</li>
-                        <li>Walk-in access</li>
-                    </ul>
+            <h2 class="stacked-heading scroll-reveal">
+                TRUSTED<br><span class="text-accent">ARTISTS &amp; CREW</span>
+            </h2>
+            
+            <div class="crew-collage">
+                <div class="crew-card hover-target scroll-reveal" style="transform: rotate(-3deg);">
+                    <div class="crew-img-placeholder curtain-reveal-container"></div>
+                    <div class="laurel-badge font-mono"><span class="laurel-icon">&#119062;</span> Top Artist</div>
+                    <h4 class="font-mono">Riya</h4>
                 </div>
-                <div class="card flex-col tier-card tier-highlight hover-target card-reveal">
-                    <div class="card-accent-line glow-border-line"></div>
-                    <div class="tier-name">Dyuman Member</div>
-                    <div class="tier-price font-mono">₹1,499<span class="price-unit">/mo</span></div>
-                    <ul class="tier-features">
-                        <li>10% off all services</li>
-                        <li>Priority booking slots</li>
-                        <li>4 gaming hours included</li>
-                        <li>1 rehearsal hour included</li>
-                    </ul>
+                <div class="crew-card hover-target scroll-reveal" style="transform: rotate(2deg) translateY(30px); z-index: 2;">
+                    <div class="crew-img-placeholder curtain-reveal-container"></div>
+                    <div class="laurel-badge font-mono"><span class="laurel-icon">&#119062;</span> Lead Engineer</div>
+                    <h4 class="font-mono">Karan</h4>
                 </div>
-                <div class="card flex-col tier-card card-hover hover-target card-reveal">
-                    <div class="card-accent-line"></div>
-                    <div class="tier-name">Studio Pro</div>
-                    <div class="tier-price font-mono">₹3,999<span class="price-unit">/mo</span></div>
-                    <ul class="tier-features">
-                        <li>20% off all services</li>
-                        <li>Unlimited off-peak gaming</li>
-                        <li>4 studio hours/mo</li>
-                        <li>Dedicated contact</li>
-                    </ul>
+                <div class="crew-card hover-target scroll-reveal" style="transform: rotate(-1deg); z-index: 1;">
+                    <div class="crew-img-placeholder curtain-reveal-container"></div>
+                    <div class="laurel-badge font-mono"><span class="laurel-icon">&#119062;</span> Arena Captain</div>
+                    <h4 class="font-mono">Viper</h4>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section 05: Testimonials -->
-    <section class="section section-testimonials">
-        <div class="section-container">
-            <div class="section-header scroll-reveal">
-                <span class="section-num font-mono">05</span>
-                <h2>Word on the Floor</h2>
             </div>
             
-            <div class="grid-hairline testimonials-grid cols-3 grid-stagger-group">
-                <div class="card flex-col quote-card card-hover hover-target card-reveal">
-                    <div class="card-accent-line"></div>
-                    <p class="quote-text">"I used to bounce between three different spots in Latur. Now I get my ink touched up, drop in for a few hours of Valorant, and head home. The vibe is unmatched."</p>
-                    <div class="quote-author font-mono text-muted">&mdash; Rahul K., Dyuman Member</div>
+            <div class="social-row scroll-reveal">
+                <a href="https://www.instagram.com/dyumaaaaan4l" target="_blank" rel="noopener" class="social-icon-btn hover-target">IG</a>
+                <a href="https://wa.me/918308366101" target="_blank" rel="noopener" class="social-icon-btn hover-target">WA</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Work Gallery Carousel -->
+    <section class="section section-gallery">
+        <div class="section-container">
+            <div class="section-header scroll-reveal">
+                <h2>WORK GALLERY</h2>
+            </div>
+            
+            <div class="carousel-container scroll-reveal">
+                <button class="carousel-btn prev hover-target" id="carouselPrev">&larr;</button>
+                <div class="carousel-track-wrapper">
+                    <div class="carousel-track" id="carouselTrack">
+                        <div class="carousel-item"><div class="gallery-img-placeholder curtain-reveal-container hover-target"></div><div class="carousel-caption font-mono">Tattoo Art</div></div>
+                        <div class="carousel-item"><div class="gallery-img-placeholder curtain-reveal-container hover-target"></div><div class="carousel-caption font-mono">Gaming Arena</div></div>
+                        <div class="carousel-item"><div class="gallery-img-placeholder curtain-reveal-container hover-target"></div><div class="carousel-caption font-mono">Studio Session</div></div>
+                        <div class="carousel-item"><div class="gallery-img-placeholder curtain-reveal-container hover-target"></div><div class="carousel-caption font-mono">Fine Line Ink</div></div>
+                        <div class="carousel-item"><div class="gallery-img-placeholder curtain-reveal-container hover-target"></div><div class="carousel-caption font-mono">Tournament Night</div></div>
+                    </div>
                 </div>
-                <div class="card flex-col quote-card card-hover hover-target card-reveal">
-                    <div class="card-accent-line"></div>
-                    <p class="quote-text">"The tournament stage is legit. 240Hz monitors, proper chairs, zero lag. Best LAN setup I've played on in the city."</p>
-                    <div class="quote-author font-mono text-muted">&mdash; Aman "Viper" S., Gaming Regular</div>
+                <button class="carousel-btn next hover-target" id="carouselNext">&rarr;</button>
+            </div>
+            <div class="text-center scroll-reveal" style="margin-top: 3rem;">
+                <a href="#" class="btn btn-outline hover-target">VIEW ALL</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recent Highlights -->
+    <section id="highlights" class="section section-highlights">
+        <div class="section-container">
+            <div class="section-header scroll-reveal">
+                <h2>RECENT AT DYUMAN</h2>
+            </div>
+            <div class="grid-hairline cols-3 grid-stagger-group">
+                <div class="card flex-col card-hover hover-target card-reveal">
+                    <div class="card-img-placeholder curtain-reveal-container">News</div>
+                    <div class="category-label font-mono text-accent">Event</div>
+                    <h3 class="highlight-title">Valorant City Finals</h3>
+                    <a href="#" class="read-more font-mono">READ MORE &rarr;</a>
                 </div>
-                <div class="card flex-col quote-card card-hover hover-target card-reveal">
-                    <div class="card-accent-line"></div>
-                    <p class="quote-text">"Came in for a walk-in consultation, ended up staying to talk concepts for an hour. The artists actually care about the design process, not just getting you in the chair."</p>
-                    <div class="quote-author font-mono text-muted">&mdash; Priya M., Tattoo Client</div>
+                <div class="card flex-col card-hover hover-target card-reveal">
+                    <div class="card-img-placeholder curtain-reveal-container">News</div>
+                    <div class="category-label font-mono text-accent">Studio</div>
+                    <h3 class="highlight-title">New SSL Console Arrival</h3>
+                    <a href="#" class="read-more font-mono">READ MORE &rarr;</a>
+                </div>
+                <div class="card flex-col card-hover hover-target card-reveal">
+                    <div class="card-img-placeholder curtain-reveal-container">News</div>
+                    <div class="category-label font-mono text-accent">Tattoo</div>
+                    <h3 class="highlight-title">Guest Artist Series: Realism</h3>
+                    <a href="#" class="read-more font-mono">READ MORE &rarr;</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer / Contact -->
-    <footer id="book" class="footer">
+    <!-- FAQ Accordion -->
+    <section class="section section-faq">
+        <div class="section-container">
+            <div class="section-header scroll-reveal">
+                <h2>FREQUENTLY ASKED QUESTIONS</h2>
+            </div>
+            
+            <div class="faq-container grid-stagger-group">
+                <div class="faq-item card-reveal">
+                    <button class="faq-question hover-target font-mono">How do I book a tattoo consultation?<span class="faq-icon">+</span></button>
+                    <div class="faq-answer"><p>We recommend booking a complimentary consultation via WhatsApp or using the inquiry form below to discuss your concept before booking chair time.</p></div>
+                </div>
+                <div class="faq-item card-reveal">
+                    <button class="faq-question hover-target font-mono">Can I just drop in to game?<span class="faq-icon">+</span></button>
+                    <div class="faq-answer"><p>Yes, casual drop-ins are welcome for standard PC and console pods depending on availability. For squad rooms and VR, booking ahead is advised.</p></div>
+                </div>
+                <div class="faq-item card-reveal">
+                    <button class="faq-question hover-target font-mono">How does studio booking work?<span class="faq-icon">+</span></button>
+                    <div class="faq-answer"><p>Studio sessions can be booked by the hour or as a full track package. An engineer is always present to assist with recording and basic mixing.</p></div>
+                </div>
+                <div class="faq-item card-reveal">
+                    <button class="faq-question hover-target font-mono">Is there a membership discount?<span class="faq-icon">+</span></button>
+                    <div class="faq-answer"><p>Yes, we offer monthly passes that provide universal discounts across ink, sound, and play, plus complimentary hours.</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instagram Strip -->
+    <section class="section-instagram">
+        <h2 class="text-center font-mono scroll-reveal" style="margin-bottom: 2rem;">@DYUMAAAAAN4L</h2>
+        <a href="https://www.instagram.com/dyumaaaaan4l" target="_blank" rel="noopener" class="insta-strip hover-target">
+            <div class="insta-tile"><div class="insta-placeholder"></div></div>
+            <div class="insta-tile"><div class="insta-placeholder"></div></div>
+            <div class="insta-tile center-tile">
+                <div class="insta-placeholder"></div>
+                <div class="insta-overlay">
+                    <div class="insta-icon">IG</div>
+                </div>
+            </div>
+            <div class="insta-tile"><div class="insta-placeholder"></div></div>
+            <div class="insta-tile"><div class="insta-placeholder"></div></div>
+        </a>
+    </section>
+
+    <!-- Split Inquiry Banner -->
+    <section class="split-inquiry">
+        <div class="inquiry-card tattoo-bg">
+            <div class="inquiry-overlay"></div>
+            <h3 class="font-mono">TATTOO INQUIRY</h3>
+            <a href="#contact" class="btn btn-outline hover-target">LEARN MORE</a>
+        </div>
+        <div class="inquiry-card gaming-bg">
+            <div class="inquiry-overlay"></div>
+            <h3 class="font-mono">GAMING INQUIRY</h3>
+            <a href="#contact" class="btn btn-outline hover-target">LEARN MORE</a>
+        </div>
+        <div class="inquiry-card music-bg">
+            <div class="inquiry-overlay"></div>
+            <h3 class="font-mono">MUSIC INQUIRY</h3>
+            <a href="#contact" class="btn btn-outline hover-target">LEARN MORE</a>
+        </div>
+    </section>
+
+    <!-- Closing Slide -->
+    <section class="closing-slide">
+        <div class="closing-bg-placeholder"></div>
+        <div class="glow-edge left"></div>
+        <div class="glow-edge right"></div>
+        <div class="closing-content scroll-reveal">
+            <p class="closing-text font-body italic">
+                Dyuman was built on one idea &mdash; that ink, sound, and play deserve the same level of craft. This is a space designed for people who take what they do seriously, whatever room they walk into.
+            </p>
+            <div class="social-row">
+                <a href="https://www.instagram.com/dyumaaaaan4l" target="_blank" rel="noopener" class="social-icon-btn hover-target">IG</a>
+                <a href="https://wa.me/918308366101" target="_blank" rel="noopener" class="social-icon-btn hover-target">WA</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="footer">
         <div class="footer-container">
-            <div class="footer-left scroll-reveal">
-                <h2>Let's Build Something.</h2>
-                <p class="footer-intro">Book a chair, a rig, or a booth.</p>
-                <!-- Form simulates success state via JS -->
-                <form id="bookingForm" class="booking-form" action="#" method="POST">
-                    <div class="form-group input-reveal">
-                        <input type="text" placeholder="Name" required class="font-mono">
-                        <div class="input-underline"></div>
-                    </div>
-                    <div class="form-group input-reveal">
-                        <input type="text" placeholder="Phone or Email" required class="font-mono">
-                        <div class="input-underline"></div>
-                    </div>
-                    <div class="form-group input-reveal">
-                        <select required class="font-mono">
-                            <option value="" disabled selected>What are you booking?</option>
-                            <option value="tattoo">Tattoo Consultation / Session</option>
-                            <option value="gaming">Gaming Rig / Tournament</option>
-                            <option value="music">Studio Booth / Rehearsal</option>
-                            <option value="membership">Membership Inquiry</option>
-                        </select>
-                        <div class="input-underline"></div>
-                    </div>
-                    <div class="form-group input-reveal">
-                        <textarea placeholder="Message (optional details)" rows="4" class="font-mono"></textarea>
-                        <div class="input-underline"></div>
-                    </div>
-                    <button type="submit" id="submitBtn" class="btn btn-solid btn-magnetic hover-target">
-                        <span class="btn-text">Send Request</span>
-                        <svg class="success-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                    </button>
-                </form>
+            <div class="footer-col brand-col scroll-reveal">
+                <div class="logo-mark footer-logo">D</div>
+                <p class="font-mono text-muted">INK &middot; SOUND &middot; PLAY</p>
             </div>
             
-            <div class="footer-middle scroll-reveal">
-                <h3 class="font-mono">Visit</h3>
-                <address>
-                    Dyuman Studio, [Building/Shop name + Street]<br>
-                    Latur, Maharashtra, [PIN code]<br><br>
-                    <strong>Hours</strong><br>
-                    Open Tue&ndash;Sun, 11am &ndash; 10pm<br>
-                    Monday: Closed
-                </address>
-                <a href="https://maps.google.com/?q=Dyuman+Studio+Latur+Maharashtra" class="footer-link font-mono text-accent-cyan hover-target" target="_blank" rel="noopener">Open in Maps &rarr;</a>
+            <div class="footer-col scroll-reveal">
+                <h3 class="font-mono">Explore</h3>
+                <div class="footer-links">
+                    <a href="#about" class="hover-target">About</a>
+                    <a href="#tattoo" class="hover-target nav-tab-link" data-target="tattoo">Tattoo</a>
+                    <a href="#gaming" class="hover-target nav-tab-link" data-target="gaming">Gaming</a>
+                    <a href="#music" class="hover-target nav-tab-link" data-target="music">Music</a>
+                    <a href="#membership" class="hover-target">Membership</a>
+                </div>
+            </div>
+            
+            <div class="footer-col scroll-reveal">
+                <h3 class="font-mono">Contact Info</h3>
+                <ul class="contact-list font-mono text-muted">
+                    <li><span class="icon">&#9993;</span> [studio@email.com]</li>
+                    <li><span class="icon">&#9742;</span> <a href="tel:+918308366101" class="hover-target">83083 66101</a></li>
+                    <li><span class="icon">&#128205;</span> Dyuman Studio, [Building/Shop]<br>Latur, Maharashtra, [PIN]</li>
+                    <li><span class="icon">&#128336;</span> Open Tue&ndash;Sun, 11am&ndash;10pm<br>Mon: Closed</li>
+                </ul>
             </div>
 
-            <div class="footer-right scroll-reveal">
+            <div class="footer-col scroll-reveal">
                 <h3 class="font-mono">Connect</h3>
-                <div class="connect-links">
-                    <!-- PLACEHOLDERS: Social/Contact links -->
-                    <a href="[@handle]" class="footer-link hover-target">Instagram</a>
-                    <a href="https://wa.me/918308366101" class="footer-link hover-target">WhatsApp &mdash; 83083 66101</a>
-                    <a href="tel:+918308366101" class="footer-link hover-target">Call &mdash; 83083 66101</a>
-                    <a href="mailto:[studio@email.com]" class="footer-link hover-target">Email</a>
+                <div class="footer-links font-mono">
+                    <a href="https://www.instagram.com/dyumaaaaan4l" target="_blank" rel="noopener" class="hover-target">Instagram &mdash; @dyumaaaaan4l</a>
+                    <a href="https://www.instagram.com/dyumaaaaan4l.ink" target="_blank" rel="noopener" class="hover-target">Tattoo Portfolio &mdash; @dyumaaaaan4l.ink</a>
+                    
+                    <a href="https://wa.me/918308366101" target="_blank" rel="noopener" class="btn btn-solid btn-sm hover-target" style="margin-top: 1rem;">
+                        <span class="icon">&#128172;</span> Message us on WhatsApp
+                    </a>
                 </div>
             </div>
         </div>
         
         <div class="footer-bottom font-mono scroll-reveal">
-            <div>&copy; 2026 DYUMAN STUDIO. ALL RIGHTS RESERVED.</div>
-            <div class="footer-tag">INK · SOUND · PLAY</div>
+            <div>&copy; 2026 DYUMAN. ALL RIGHTS RESERVED.</div>
         </div>
     </footer>
 
