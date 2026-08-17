@@ -10,10 +10,14 @@
     --accent-tattoo: #e07a3f;
     --accent-gaming: #3fd0e0;
     --accent-music: #9b7ee0;
+    --active-accent: #e07a3f; /* Defaults to tattoo, updated by JS */
 
     --font-display: 'Anton', sans-serif;
     --font-body: 'Work Sans', sans-serif;
     --font-mono: 'IBM Plex Mono', monospace;
+    
+    --ease-fast: cubic-bezier(0.25, 1, 0.5, 1);
+    --ease-reveal: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* RESET */
@@ -36,7 +40,64 @@ body {
     line-height: 1.5;
     overflow-x: hidden;
     position: relative;
+    cursor: default; /* Hide default cursor, but wait till custom cursor is proven on desktop. Let JS handle body cursor */
 }
+
+body.has-custom-cursor {
+    cursor: none;
+}
+body.has-custom-cursor a,
+body.has-custom-cursor button,
+body.has-custom-cursor select,
+body.has-custom-cursor input,
+body.has-custom-cursor textarea {
+    cursor: none; /* Let the custom cursor handle interactions */
+}
+
+
+/* CUSTOM CURSOR */
+.custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 8px;
+    height: 8px;
+    background-color: var(--text);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: width 0.2s var(--ease-fast), height 0.2s var(--ease-fast), background-color 0.2s var(--ease-fast);
+    display: none; /* hidden by default, shown by JS on non-touch */
+}
+
+.custom-cursor.hovering {
+    width: 24px;
+    height: 24px;
+    background-color: var(--active-accent);
+    mix-blend-mode: difference;
+}
+
+/* PAGE LOADER */
+.loader-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: var(--bg);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.8s var(--ease-reveal), opacity 0.8s var(--ease-reveal);
+}
+
+.loader-line {
+    width: 0;
+    height: 2px;
+    background-color: transparent;
+    position: relative;
+}
+
+/* Animation injected via JS for the line drawing */
 
 /* TYPOGRAPHY */
 h1, h2, h3, h4, .font-display {
@@ -60,6 +121,51 @@ h1, h2, h3, h4, .font-display {
 }
 .text-center { text-align: center; }
 
+/* REVEAL ANIMATIONS (Initial states) */
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s var(--ease-reveal), transform 0.7s var(--ease-reveal);
+    will-change: opacity, transform;
+}
+.scroll-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.card-reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s var(--ease-reveal), transform 0.7s var(--ease-reveal), box-shadow 0.3s var(--ease-fast);
+    will-change: opacity, transform;
+}
+.card-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Staggering hero elements */
+.fade-in-element {
+    opacity: 0;
+    transition: opacity 0.6s ease;
+}
+.fade-in-element.is-visible {
+    opacity: 1;
+}
+.reveal-line-wrap {
+    overflow: hidden;
+    padding-bottom: 5px; /* prevent descender cutoff */
+}
+.reveal-line {
+    transform: translateY(100%);
+    opacity: 0;
+    transition: transform 0.8s var(--ease-reveal), opacity 0.8s var(--ease-reveal);
+}
+.reveal-line.is-visible {
+    transform: translateY(0);
+    opacity: 1;
+}
+
 /* SEAM SIGNATURE ELEMENT */
 .seam {
     position: fixed;
@@ -82,10 +188,16 @@ h1, h2, h3, h4, .font-display {
     transform: translateX(-50%);
     width: 4px;
     height: 80px;
-    background: var(--text);
+    background: var(--active-accent);
     border-radius: 4px;
-    box-shadow: 0 0 15px 2px var(--text);
-    transition: background-color 0.4s ease, box-shadow 0.4s ease;
+    box-shadow: 0 0 15px 2px var(--active-accent);
+    transition: background-color 0.5s ease, box-shadow 0.5s ease;
+    animation: seamPulse 4s ease-in-out infinite;
+}
+
+@keyframes seamPulse {
+    0%, 100% { opacity: 0.7; }
+    50% { opacity: 1; }
 }
 
 /* NAVIGATION */
@@ -100,11 +212,11 @@ h1, h2, h3, h4, .font-display {
     align-items: center;
     z-index: 1000;
     mix-blend-mode: difference;
-    pointer-events: none; /* Let clicks pass through empty space */
+    pointer-events: none;
 }
 
 .navbar > * {
-    pointer-events: auto; /* Re-enable clicks on nav items */
+    pointer-events: auto;
 }
 
 .nav-logo {
@@ -114,7 +226,8 @@ h1, h2, h3, h4, .font-display {
 }
 
 .logo-accent {
-    color: var(--text);
+    color: var(--active-accent);
+    transition: color 0.5s ease;
 }
 
 .nav-links {
@@ -129,11 +242,11 @@ h1, h2, h3, h4, .font-display {
 .nav-links a {
     color: var(--text);
     text-decoration: none;
-    transition: opacity 0.3s ease;
+    transition: color 0.15s var(--ease-fast);
 }
 
 .nav-links a:hover {
-    opacity: 0.6;
+    color: var(--active-accent);
 }
 
 .nav-book {
@@ -145,7 +258,6 @@ h1, h2, h3, h4, .font-display {
 .nav-book:hover {
     background: var(--text);
     color: var(--bg);
-    opacity: 1;
 }
 
 /* HERO */
@@ -223,7 +335,12 @@ h1, h2, h3, h4, .font-display {
     gap: 1rem;
 }
 
+/* BUTTONS */
 .btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     font-family: var(--font-mono);
     text-transform: uppercase;
     text-decoration: none;
@@ -231,7 +348,25 @@ h1, h2, h3, h4, .font-display {
     font-size: 0.9rem;
     cursor: pointer;
     border-radius: 2px;
-    transition: all 0.3s ease;
+    transition: background-color 0.2s var(--ease-fast), color 0.2s var(--ease-fast), border-color 0.2s var(--ease-fast);
+    overflow: hidden;
+}
+
+/* For magnetic child */
+.btn-text {
+    pointer-events: none;
+}
+.btn .success-icon {
+    width: 20px;
+    height: 20px;
+    display: none;
+    pointer-events: none;
+}
+.btn.success-state .btn-text {
+    display: none;
+}
+.btn.success-state .success-icon {
+    display: block;
 }
 
 .btn-solid {
@@ -240,8 +375,9 @@ h1, h2, h3, h4, .font-display {
     border: 1px solid var(--text);
 }
 .btn-solid:hover {
-    background: transparent;
-    color: var(--text);
+    background: var(--active-accent);
+    border-color: var(--active-accent);
+    color: var(--bg);
 }
 
 .btn-outline {
@@ -272,6 +408,10 @@ h1, h2, h3, h4, .font-display {
     animation: marquee-scroll 20s linear infinite;
 }
 
+.marquee-container:hover .marquee {
+    animation-play-state: paused;
+}
+
 .marquee-dot {
     margin: 0 2rem;
     color: var(--text-muted);
@@ -280,16 +420,6 @@ h1, h2, h3, h4, .font-display {
 @keyframes marquee-scroll {
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .marquee {
-        animation: none;
-        white-space: normal;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
 }
 
 /* SECTIONS */
@@ -338,7 +468,7 @@ h1, h2, h3, h4, .font-display {
     color: var(--text-muted);
 }
 
-/* HAIRLINE GRID */
+/* HAIRLINE GRID & CARDS */
 .grid-hairline {
     display: grid;
     gap: 1px;
@@ -353,11 +483,38 @@ h1, h2, h3, h4, .font-display {
 .card {
     background-color: var(--bg);
     padding: 2rem;
-    transition: background-color 0.3s ease;
+    position: relative;
 }
 
-.card:hover {
+/* Card hover physics */
+.card-hover {
+    transition: transform 0.3s var(--ease-fast), box-shadow 0.3s var(--ease-fast), background-color 0.3s var(--ease-fast);
+}
+
+/* The card-reveal overrides transforms before it's visible, so hover works once visible */
+.card-hover.is-visible:hover {
+    transform: translateY(-4px);
     background-color: var(--panel);
+}
+
+.section-tattoo .card-hover.is-visible:hover { box-shadow: 0 10px 30px rgba(224, 122, 63, 0.1); }
+.section-gaming .card-hover.is-visible:hover { box-shadow: 0 10px 30px rgba(63, 208, 224, 0.1); }
+.section-music .card-hover.is-visible:hover { box-shadow: 0 10px 30px rgba(155, 126, 224, 0.1); }
+.section-membership .card-hover.is-visible:hover { box-shadow: 0 10px 30px rgba(224, 122, 63, 0.1); }
+.section-testimonials .card-hover.is-visible:hover { box-shadow: 0 10px 30px rgba(242, 236, 226, 0.05); }
+
+.card-accent-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--active-accent);
+    opacity: 0;
+    transition: opacity 0.3s var(--ease-fast);
+}
+.card-hover.is-visible:hover .card-accent-line {
+    opacity: 1;
 }
 
 .card-img-placeholder {
@@ -394,18 +551,21 @@ h1, h2, h3, h4, .font-display {
     color: var(--text-muted);
 }
 
-/* TATTOO ACCENT */
+/* SECTION ACCENTS */
 .section-tattoo .section-num { color: var(--accent-tattoo); }
+.section-tattoo .card-accent-line { background-color: var(--accent-tattoo); }
 
-/* GAMING ACCENT */
 .section-gaming .section-num { color: var(--accent-gaming); }
 .section-gaming .accent-color { color: var(--accent-gaming); }
+.section-gaming .card-accent-line { background-color: var(--accent-gaming); }
+
 .stat-num { font-size: 4rem; line-height: 1; margin-bottom: 0.5rem; }
 .stat-label { font-size: 1.25rem; margin-bottom: 0.5rem; }
 
-/* MUSIC ACCENT */
 .section-music .section-num { color: var(--accent-music); }
+.section-music .card-accent-line { background-color: var(--accent-music); }
 
+/* WAVEFORM */
 .waveform-container {
     height: 150px;
     display: flex;
@@ -413,24 +573,43 @@ h1, h2, h3, h4, .font-display {
     gap: 4px;
     margin-bottom: 4rem;
     border-bottom: 1px solid var(--hairline);
+    overflow: hidden;
 }
 
 .waveform-bar {
     flex: 1;
     background: linear-gradient(to top, var(--accent-music), transparent);
     opacity: 0.8;
-    transition: height 0.2s ease;
-    min-height: 5%;
+    transform-origin: bottom;
+    transform: scaleY(0); /* Initial state for reveal */
+    transition: transform 0.6s var(--ease-reveal);
+}
+
+.waveform-bar.is-visible {
+    transform: scaleY(1);
+}
+
+/* Idle animation applied by JS after reveal */
+@keyframes waveformIdle {
+    0% { transform: scaleY(0.9); }
+    100% { transform: scaleY(1.1); }
 }
 
 /* MEMBERSHIP SECTION */
+.section-membership .section-num { color: var(--accent-tattoo); }
+.section-membership .card-accent-line { background-color: var(--accent-tattoo); }
+
 .tier-card {
     align-items: center;
     text-align: center;
 }
 .tier-highlight {
     background-color: var(--panel);
-    position: relative;
+}
+.glow-border-line {
+    opacity: 1; /* Always on for highlight tier */
+    background-color: var(--accent-tattoo);
+    box-shadow: 0 0 10px var(--accent-tattoo);
 }
 .tier-highlight::before {
     content: "POPULAR";
@@ -512,18 +691,44 @@ h1, h2, h3, h4, .font-display {
     max-width: 400px;
 }
 
+.form-group {
+    position: relative;
+}
+
 .form-group input, .form-group select, .form-group textarea {
     width: 100%;
     background: var(--panel-alt);
-    border: 1px solid var(--hairline);
+    border: none;
+    border-bottom: 1px solid var(--hairline);
     color: var(--text);
     padding: 1rem;
-    border-radius: 2px;
+    border-radius: 0;
+    font-size: 1rem;
+    transition: background-color 0.2s;
 }
+
 .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
     outline: none;
-    border-color: var(--text);
+    background: var(--panel);
 }
+
+.input-underline {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 1px;
+    background-color: var(--active-accent);
+    transition: width 0.3s var(--ease-fast);
+}
+
+.form-group input:focus ~ .input-underline,
+.form-group select:focus ~ .input-underline,
+.form-group textarea:focus ~ .input-underline {
+    width: 100%;
+}
+
 .form-group select {
     appearance: none;
 }
@@ -556,10 +761,10 @@ h1, h2, h3, h4, .font-display {
 .footer-link {
     color: var(--text-muted);
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: color 0.15s var(--ease-fast);
 }
 .footer-link:hover {
-    color: var(--text);
+    color: var(--active-accent);
 }
 
 .footer-bottom {
@@ -571,6 +776,47 @@ h1, h2, h3, h4, .font-display {
     color: var(--text-muted);
     font-size: 0.8rem;
 }
+
+
+/* REDUCED MOTION FALLBACKS */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    
+    .loader-overlay {
+        display: none !important;
+    }
+    
+    .scroll-reveal, .card-reveal, .fade-in-element, .reveal-line {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+    
+    .waveform-bar {
+        transform: scaleY(1) !important;
+    }
+    
+    .custom-cursor {
+        display: none !important;
+    }
+    
+    body {
+        cursor: auto !important;
+    }
+    
+    .marquee {
+        animation: none !important;
+        white-space: normal;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
 
 /* RESPONSIVE */
 @media (max-width: 1024px) {
@@ -615,5 +861,12 @@ h1, h2, h3, h4, .font-display {
     
     .waveform-container {
         height: 100px;
+    }
+    
+    .custom-cursor {
+        display: none !important;
+    }
+    body.has-custom-cursor {
+        cursor: auto;
     }
 }
