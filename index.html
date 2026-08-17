@@ -27,6 +27,7 @@
     <nav class="navbar fade-in-element">
         <div class="nav-logo">
             D<span class="logo-accent">Y</span>UMAN
+            <span class="live-badge font-mono" id="liveBadge"><span class="live-indicator"></span><span class="live-text">Closed</span></span>
         </div>
         <div class="nav-links">
             <a href="#tattoo" class="hover-target">Tattoo</a>
@@ -102,7 +103,7 @@
                 <!-- Replace the card-img-placeholder div with <img> tags -->
                 <div class="card card-hover hover-target card-reveal">
                     <div class="card-accent-line"></div>
-                    <div class="card-img-placeholder">Image Placeholder</div>
+                    <div class="card-img-placeholder curtain-reveal-container hover-target">Image Placeholder</div>
                     <div class="card-body">
                         <h4>Artist Name</h4>
                         <p class="font-mono text-muted">Fine Line / Botanical</p>
@@ -110,7 +111,7 @@
                 </div>
                 <div class="card card-hover hover-target card-reveal">
                     <div class="card-accent-line"></div>
-                    <div class="card-img-placeholder">Image Placeholder</div>
+                    <div class="card-img-placeholder curtain-reveal-container hover-target">Image Placeholder</div>
                     <div class="card-body">
                         <h4>Artist Name</h4>
                         <p class="font-mono text-muted">Blackwork / Geometric</p>
@@ -118,7 +119,7 @@
                 </div>
                 <div class="card card-hover hover-target card-reveal">
                     <div class="card-accent-line"></div>
-                    <div class="card-img-placeholder">Image Placeholder</div>
+                    <div class="card-img-placeholder curtain-reveal-container hover-target">Image Placeholder</div>
                     <div class="card-body">
                         <h4>Artist Name</h4>
                         <p class="font-mono text-muted">Realism / Portrait</p>
@@ -126,7 +127,7 @@
                 </div>
                 <div class="card card-hover hover-target card-reveal">
                     <div class="card-accent-line"></div>
-                    <div class="card-img-placeholder">Image Placeholder</div>
+                    <div class="card-img-placeholder curtain-reveal-container hover-target">Image Placeholder</div>
                     <div class="card-body">
                         <h4>Artist Name</h4>
                         <p class="font-mono text-muted">Traditional / Color</p>
@@ -391,6 +392,17 @@
             <div class="footer-tag">INK · SOUND · PLAY</div>
         </div>
     </footer>
+
+    <!-- Sticky WhatsApp -->
+    <a href="https://wa.me/918308366101" class="sticky-whatsapp hover-target" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+        <svg viewBox="0 0 24 24"><path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.964 9.964 0 001.333 4.976L1.865 22.5l5.683-1.49a9.96 9.96 0 004.464 1.053h.004c5.505 0 9.988-4.478 9.989-9.984A9.957 9.957 0 0019.07 5.045a9.955 9.955 0 00-7.058-2.929v-.116zm5.83 14.153c-.247.695-1.42 1.341-1.956 1.458-.513.111-1.185.163-3.32-.723-3.045-1.266-5.006-4.38-5.158-4.582-.152-.202-1.233-1.642-1.233-3.13 0-1.488.767-2.222 1.042-2.525.275-.303.6-.379.799-.379.198 0 .397.001.574.009.185.009.431-.073.676.518.253.606.862 2.106.94 2.257.078.152.13.329.03.556-.1.227-.152.366-.303.543-.152.177-.32.378-.455.505-.152.152-.313.315-.14.618.172.303.766 1.272 1.645 2.053 1.137 1.011 2.091 1.323 2.393 1.474.303.152.48.127.658-.075.177-.202.766-.895.969-1.2.203-.303.406-.252.684-.151.278.1.1763.834 2.053.909.29.076.455.247.53.379.075.132.075.766-.172 1.46z"/></svg>
+    </a>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close hover-target" id="lightboxClose">&times;</button>
+        <img class="lightbox-content" id="lightboxImg" src="" alt="Lightbox image">
+    </div>
 
     <script src="script.js"></script>
 </body>

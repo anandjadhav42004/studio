@@ -25,16 +25,18 @@ document.addEventListener("DOMContentLoaded", () => {
             loaderLine.style.backgroundColor = 'var(--accent-music)';
         }, 700);
 
-        // Hide loader and start hero reveals
+        // Hide loader bar
         setTimeout(() => {
-            loaderOverlay.style.transform = 'translateY(-100%)';
             loaderOverlay.style.opacity = '0';
-            
             setTimeout(() => {
                 loaderOverlay.style.display = 'none';
-                initHeroReveal();
-            }, 800);
+            }, 500);
         }, 1200);
+        
+        // Start hero reveals earlier since loader is just a top bar now
+        setTimeout(() => {
+            initHeroReveal();
+        }, 600);
     } else {
         if (loaderOverlay) loaderOverlay.style.display = 'none';
         initHeroReveal();
@@ -319,4 +321,114 @@ document.addEventListener("DOMContentLoaded", () => {
             }, 3000);
         });
     }
+    // 11. LIVE OPEN/CLOSE BADGE
+    const liveBadge = document.getElementById('liveBadge');
+    if (liveBadge) {
+        const updateBadge = () => {
+            const now = new Date();
+            const day = now.getDay();
+            const hour = now.getHours();
+            const isOpenDay = day !== 1; // 1 is Monday
+            const isOpenHour = hour >= 11 && hour < 22; // 11am to 10pm
+            
+            if (isOpenDay && isOpenHour) {
+                liveBadge.classList.add('is-open');
+                liveBadge.querySelector('.live-text').innerText = 'Open Now';
+            } else {
+                liveBadge.classList.remove('is-open');
+                liveBadge.querySelector('.live-text').innerText = 'Closed';
+            }
+        };
+        updateBadge();
+        setInterval(updateBadge, 60000); // Check every minute
+    }
+
+    // 12. HERO PARALLAX & GLOW REACTIVITY
+    const hero = document.querySelector('.hero');
+    const heroGlows = document.querySelectorAll('.hero-glow');
+    if (hero && !prefersReducedMotion) {
+        hero.addEventListener('mousemove', (e) => {
+            const x = e.clientX / window.innerWidth - 0.5;
+            const y = e.clientY / window.innerHeight - 0.5;
+            
+            heroGlows.forEach((glow, index) => {
+                const depth = (index + 1) * 20;
+                glow.style.transform = `translate(${x * depth}px, ${y * depth}px)`;
+            });
+        });
+    }
+
+    // 13. 3D TILT ON CARDS
+    const tiltCards = document.querySelectorAll('.card');
+    if (!prefersReducedMotion && window.matchMedia("(hover: hover)").matches) {
+        tiltCards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left; 
+                const y = e.clientY - rect.top; 
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                // Calculate rotation (max 10 degrees)
+                const rotateX = ((y - centerY) / centerY) * -10;
+                const rotateY = ((x - centerX) / centerX) * 10;
+                
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+            });
+        });
+    }
+
+    // 14. LIGHTBOX
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxClose = document.getElementById('lightboxClose');
+    const galleryItems = document.querySelectorAll('.card-img-placeholder');
+    
+    if (lightbox) {
+        galleryItems.forEach(item => {
+            item.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const img = item.querySelector('img');
+                if (img) {
+                    lightboxImg.src = img.src;
+                    lightboxImg.style.display = 'block';
+                    lightbox.style.backgroundColor = 'rgba(12, 11, 10, 0.95)';
+                } else {
+                    // Fallback for placeholder
+                    lightboxImg.style.display = 'none';
+                    lightbox.style.backgroundColor = 'var(--panel)';
+                }
+                lightbox.classList.add('is-open');
+            });
+        });
+        
+        const closeLightbox = () => lightbox.classList.remove('is-open');
+        if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', closeLightbox);
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeLightbox();
+        });
+    }
+
+    // 15. CURTAIN REVEAL OBSERVER
+    const curtainObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.classList.add('is-visible');
+                }, 200);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.2, rootMargin: "0px 0px -50px 0px" });
+
+    document.querySelectorAll('.curtain-reveal-container').forEach(el => {
+        if (!prefersReducedMotion) curtainObserver.observe(el);
+        else el.classList.add('is-visible');
+    });
+
 });
